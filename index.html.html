@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sachin ❤️ Sonam</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: 'Segoe UI', sans-serif;
+        background: linear-gradient(to bottom right, #ff758c, #ff7eb3);
+        color: white;
+        text-align: center;
+        overflow-x: hidden;
+    }
+
+    .container {
+        padding: 30px 15px;
+        position: relative;
+        z-index: 2;
+    }
+
+    h1 { font-size: 2.6em; }
+    h2 { font-weight: normal; }
+
+    img {
+        width: 85%;
+        max-width: 350px;
+        border-radius: 20px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        margin: 20px 0;
+    }
+
+    .message {
+        font-size: 1.3em;
+        margin: 25px 0;
+        line-height: 1.6;
+    }
+
+    .buttons {
+        margin-top: 30px;
+    }
+
+    button {
+        padding: 12px 22px;
+        font-size: 1.1em;
+        border-radius: 25px;
+        border: none;
+        cursor: pointer;
+        margin: 10px;
+    }
+
+    .yes {
+        background: #ff2e63;
+        color: white;
+    }
+
+    .def-yes, .no-btn {
+        background: #08d9d6;
+        color: black;
+        position: relative;
+        transition: transform 0.2s ease;
+    }
+
+    /* Falling Hearts */
+    .heart {
+        position: fixed;
+        top: -10px;
+        font-size: 20px;
+        animation: fall linear infinite;
+        color: #ffdde1;
+        z-index: 1;
+    }
+
+    @keyframes fall {
+        to {
+            transform: translateY(110vh);
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Sachin ❤️ Sonam</h1>
+    <h2>Ek chhoti si love story…</h2>
+
+    <img src="photo.jpg" alt="Sachin and Sonam">
+
+    <div class="message">
+        Jab se tum meri zindagi mein aayi ho,<br>
+        har din aur bhi khoobsurat ho gaya hai 💕<br>
+        Tumhari muskurahat meri duniya hai.
+    </div>
+
+    <div class="buttons">
+        <button class="yes" onclick="accepted()">Yes 💖</button>
+        <button class="def-yes no-btn" onmouseover="runAway(this)" onclick="runAway(this)">
+            No 🙈
+        </button>
+    </div>
+
+    <h2 style="margin-top:30px;">
+        meri pyari Sonam 🌹<br>
+        will you be my valentine 💖
+    </h2>
+</div>
+
+<script>
+    // Yes button alert
+    function accepted() {
+        alert("Yaaay! 💕 Sachin & Sonam forever 💍❤️");
+    }
+
+    // No button runs away
+    function runAway(btn) {
+        const x = Math.random() * 200 - 100;
+        const y = Math.random() * 200 - 100;
+        btn.style.transform = `translate(${x}px, ${y}px)`;
+    }
+
+    // Falling hearts animation
+    setInterval(() => {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "❤️";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = (3 + Math.random() * 5) + "s";
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 8000);
+    }, 300);
+</script>
+
+</body>
+</html>
